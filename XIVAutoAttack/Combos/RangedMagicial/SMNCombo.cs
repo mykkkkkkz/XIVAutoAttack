@@ -25,125 +25,118 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
     internal struct Actions
     {
         public static readonly BaseAction
-            //±¦Ê¯ÊŞÕÙ»½
+            //å®çŸ³å…½å¬å”¤
             SummonCarbuncle = new BaseAction(25798)
             {
                 OtherCheck = b => !TargetHelper.HavePet,
             },
 
-            //×ÆÈÈÖ®¹â ÍÅ¸¨
+            //ç¼çƒ­ä¹‹å…‰ å›¢è¾…
             SearingLight = new BaseAction(25801)
             {
                 OtherCheck = b => TargetHelper.InBattle && !InBahamut && !InPhoenix &&
                 JobGauge.ReturnSummon == Dalamud.Game.ClientState.JobGauge.Enums.SummonPet.NONE,
             },
 
-            //ÊØ»¤Ö®¹â ¸ø×Ô¼º´÷Ì×
+            //å®ˆæŠ¤ä¹‹å…‰ ç»™è‡ªå·±æˆ´å¥—
             RadiantAegis = new BaseAction(25799),
 
-            //Ò½Êõ
+            //åŒ»æœ¯
             Physick = new BaseAction(16230, true),
 
-            //ÒÔÌ«ĞîÄÜ 
+            //ä»¥å¤ªè“„èƒ½ 
             Aethercharge = new BaseAction(25800)
             {
                 OtherCheck = b => TargetHelper.InBattle,
             },
 
-            //ÁúÉñÕÙ»½
+            //é¾™ç¥å¬å”¤
             SummonBahamut = new BaseAction(7427),
 
-            //ºì±¦Ê¯ÕÙ»½
+            //çº¢å®çŸ³å¬å”¤
             SummonRuby = new BaseAction(25802)
             {
                 OtherCheck = b => JobGauge.IsIfritReady && !TargetHelper.IsMoving,
             },
 
-            //»Æ±¦Ê¯ÕÙ»½
+            //é»„å®çŸ³å¬å”¤
             SummonTopaz = new BaseAction(25803)
             {
                 OtherCheck = b => JobGauge.IsTitanReady,
             },
 
-            //ÂÌ±¦Ê¯ÕÙ»½
+            //ç»¿å®çŸ³å¬å”¤
             SummonEmerald = new BaseAction(25804)
             {
                 OtherCheck = b => JobGauge.IsGarudaReady,
             },
 
-            //±¦Ê¯Ò«
+            //å®çŸ³è€€
             Gemshine = new SMNAction(25883)
             {
                 OtherCheck = b => JobGauge.Attunement > 0,
             },
 
-            //±¦Ê¯»Ô
+            //å®çŸ³è¾‰
             PreciousBrilliance = new SMNAction(25884)
             {
                 OtherCheck = b => JobGauge.Attunement > 0,
             },
 
-            //»ÙÃğ µ¥Ìå¹¥»÷
+            //æ¯ç­ å•ä½“æ”»å‡»
             Ruin = new SMNAction(163),
 
-            //±ÅÁÑ ·¶Î§ÉËº¦
+            //è¿¸è£‚ èŒƒå›´ä¼¤å®³
             Outburst = new SMNAction(16511),
 
-            //¸´Éú
+            //å¤ç”Ÿ
             Resurrection = new BaseAction(173, true),
 
-            //ÄÜÁ¿ÎüÊÕ
+            //èƒ½é‡å¸æ”¶
             EnergyDrain = new BaseAction(16508),
 
-            //ÄÜÁ¿³éÈ¡
+            //èƒ½é‡æŠ½å–
             EnergySiphon = new BaseAction(16510),
 
-            //À£ÀÃ±¬·¢
+            //æºƒçƒ‚çˆ†å‘
             Fester = new BaseAction(181),
 
-            //Í´¿àºË±¬
+            //ç—›è‹¦æ ¸çˆ†
             Painflare = new BaseAction(3578),
 
-            //»Ù¾ø
+            //æ¯ç»
             RuinIV = new BaseAction(7426)
             {
                 BuffsNeed = new ushort[] { ObjectStatus.FurtherRuin },
             },
 
-            //ÁúÉñ±Å·¢
+            //é¾™ç¥è¿¸å‘
             EnkindleBahamut = new BaseAction(7429)
             {
                 OtherCheck = b => InBahamut || InPhoenix,
             },
 
-            //ËÀĞÇºË±¬
+            //æ­»æ˜Ÿæ ¸çˆ†
             Deathflare = new BaseAction(3582)
             {
                 OtherCheck = b => InBahamut,
             },
 
-            //ËÕÉúÖ®Ñ×
+            //è‹ç”Ÿä¹‹ç‚
             Rekindle = new BaseAction(25830, true)
             {
                 OtherCheck = b => InPhoenix,
             },
 
-            //ÉîºìĞı·ç
-            CrimsonCyclone = new BaseAction(25835)
-            {
-                BuffsNeed = new ushort[] { ObjectStatus.IfritsFavor },
-            },
 
-            //ÉîºìÇ¿Ï®
-            CrimsonStrike = new BaseAction(25885),
 
-            //É½±À
+            //å±±å´©
             MountainBuster = new BaseAction(25836)
             {
                 BuffsNeed = new ushort[] { ObjectStatus.TitansFavor },
             },
 
-            //ÂİĞıÆøÁ÷
+            //èºæ—‹æ°”æµ
             Slipstream = new BaseAction(25837)
             {
                 BuffsNeed = new ushort[] { ObjectStatus.GarudasFavor },
@@ -151,12 +144,12 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
     }
     internal override SortedList<DescType, string> Description => new SortedList<DescType, string>()
     {
-        {DescType.µ¥Ìå·ÀÓù, $"{Actions.RadiantAegis.Action.Name}"},
-        {DescType.µ¥ÌåÖÎÁÆ, $"{Actions.Physick.Action.Name}"},
+        {DescType.å•ä½“é˜²å¾¡, $"{Actions.RadiantAegis.Action.Name}"},
+        {DescType.å•ä½“æ²»ç–—, $"{Actions.Physick.Action.Name}"},
     };
     private protected override bool BreakAbility(byte abilityRemain, out IAction act)
     {
-        //×ÆÈÈÖ®¹â
+        //ç¼çƒ­ä¹‹å…‰
         if (Actions.SearingLight.ShouldUseAction(out act)) return true;
 
         return false;
@@ -164,10 +157,10 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
 
     private protected override bool GeneralGCD(uint lastComboActionID, out IAction act)
     {
-        //±¦Ê¯ÊŞÕÙ»½
+        //å®çŸ³å…½å¬å”¤
         if (Actions.SummonCarbuncle.ShouldUseAction(out act)) return true;
 
-        //´óÕĞ
+        //å¤§æ‹›
         if (!InBahamut && !InPhoenix)
         {
             if (Actions.RuinIV.ShouldUseAction(out act, mustUse: true)) return true;
@@ -177,7 +170,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
         }
 
 
-        //ÕÙ»½
+        //å¬å”¤
         if (JobGauge.Attunement == 0)
         {
             if (Actions.SummonBahamut.ShouldUseAction(out act))
@@ -192,51 +185,51 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
                 switch (Config.GetComboByName("SummonOrder"))
                 {
                     default:
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
                         break;
                     case 1:
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
                         break;
                     case 2:
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
                         break;
                     case 3:
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
                         break;
                     case 4:
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
                         break;
                     case 5:
-                        //ÂÌ ·ç
+                        //ç»¿ é£
                         if (Actions.SummonEmerald.ShouldUseAction(out act)) return true;
-                        //»Æ ÍÁ
+                        //é»„ åœŸ
                         if (Actions.SummonTopaz.ShouldUseAction(out act)) return true;
-                        //ºì »ğ
+                        //çº¢ ç«
                         if (Actions.SummonRuby.ShouldUseAction(out act)) return true;
                         break;
                 }
@@ -247,7 +240,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
         if (Actions.PreciousBrilliance.ShouldUseAction(out act)) return true;
         if (Actions.Outburst.ShouldUseAction(out act)) return true;
 
-        //µ¥Ìå
+        //å•ä½“
         if (Actions.Gemshine.ShouldUseAction(out act)) return true;
         if (Actions.Ruin.ShouldUseAction(out act)) return true;
         return false;
@@ -256,9 +249,9 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
     {
         return base.CreateConfiguration().SetCombo("SummonOrder", 0, new string[]
         {
-            "ºì-»Æ-ÂÌ", "ºì-ÂÌ-»Æ", "»Æ-ÂÌ-ºì", "»Æ-ºì-ÂÌ", "ÂÌ-ºì-»Æ", "ÂÌ-»Æ-ºì",
+            "çº¢-é»„-ç»¿", "çº¢-ç»¿-é»„", "é»„-ç»¿-çº¢", "é»„-çº¢-ç»¿", "ç»¿-çº¢-é»„", "ç»¿-é»„-çº¢",
 
-        }, "ÈıÉñÕÙ»½Ë³Ğò");
+        }, "ä¸‰ç¥å¬å”¤é¡ºåº");
     }
     private protected override bool ForAttachAbility(byte abilityRemain, out IAction act)
     {
@@ -268,7 +261,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
         if (Actions.MountainBuster.ShouldUseAction(out act, mustUse: true)) return true;
 
 
-        //ÄÜÁ¿ÎüÊÕ
+        //èƒ½é‡å¸æ”¶
         if (JobGauge.HasAetherflowStacks && InBreak)
         {
             if (Actions.Painflare.ShouldUseAction(out act)) return true;
@@ -285,7 +278,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
 
     private protected override bool DefenceSingleAbility(byte abilityRemain, out IAction act)
     {
-        //ÊØ»¤Ö®¹â
+        //å®ˆæŠ¤ä¹‹å…‰
         if (Actions.RadiantAegis.ShouldUseAction(out act)) return true;
 
         return false;
@@ -293,7 +286,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
 
     private protected override bool HealSingleGCD(uint lastComboActionID, out IAction act)
     {
-        //Ò½Êõ
+        //åŒ»æœ¯
         if (Actions.Physick.ShouldUseAction(out act)) return true;
 
         return false;
@@ -301,7 +294,7 @@ internal class SMNCombo : CustomComboJob<SMNGauge>
 
     private protected override bool DefenceAreaAbility(byte abilityRemain, out IAction act)
     {
-        //»ìÂÒ
+        //æ··ä¹±
         if (GeneralActions.Addle.ShouldUseAction(out act)) return true;
         return false;
     }
