@@ -26,104 +26,102 @@ internal class WARCombo : CustomComboJob<WARGauge>
     internal struct Actions
     {
         public static readonly BaseAction
-            //ÊØ»¤
+            //å®ˆæŠ¤
             Defiance = new BaseAction(48, shouldEndSpecial: true),
 
-            //ÖØÅü
+            //é‡åŠˆ
             HeavySwing = new BaseAction(31),
 
-            //Ğ×²ĞÁÑ
+            //å‡¶æ®‹è£‚
             Maim = new BaseAction(37),
 
-            //±©·çÕ¶ ÂÌ¸«
+            //æš´é£æ–© ç»¿æ–§
             StormsPath = new BaseAction(42),
 
-            //±©·çËé ºì¸«
+            //æš´é£ç¢ çº¢æ–§
             StormsEye = new BaseAction(45)
             {
                 OtherCheck = b => BuffTime < 10,
             },
 
-            //·É¸«
+            //é£æ–§
             Tomahawk = new BaseAction(46)
-            {
-                FilterForHostile = b => BaseAction.ProvokeTarget(b, out _),
-            },
 
-            //ÃÍ¹¥
+
+            //çŒ›æ”»
             Onslaught = new BaseAction(7386, shouldEndSpecial: true),
 
-            //¶¯ÂÒ    
+            //åŠ¨ä¹±    
             Upheaval = new BaseAction(7387),
 
-            //³¬Ñ¹¸«
+            //è¶…å‹æ–§
             Overpower = new BaseAction(41),
 
-            //ÃØÒø±©·ç
+            //ç§˜é“¶æš´é£
             MythrilTempest = new BaseAction(16462),
 
-            //ÈºÉ½Â¡Æğ
+            //ç¾¤å±±éš†èµ·
             Orogeny = new BaseAction(25752),
 
-            //Ô­³õÖ®»ê
+            //åŸåˆä¹‹é­‚
             InnerBeast = new BaseAction(49),
 
-            //¸ÖÌúĞı·ç
+            //é’¢é“æ—‹é£
             SteelCyclone = new BaseAction(51),
 
-            //Õ½º¿
+            //æˆ˜åš
             Infuriate = new BaseAction(52)
             {
                 BuffsProvide = new ushort[] { ObjectStatus.InnerRelease },
                 OtherCheck = b => BaseAction.GetObjectInRadius(TargetHelper.HostileTargets, 5).Length > 0 && JobGauge.BeastGauge <= 50,
             },
 
-            //¿ñ±©
+            //ç‹‚æš´
             Berserk = new BaseAction(38)
             {
                 OtherCheck = b => BaseAction.GetObjectInRadius(TargetHelper.HostileTargets, 5).Length > 0,
             },
 
-            //Õ½Àõ
+            //æˆ˜æ —
             ThrillofBattle = new BaseAction(40),
 
-            //Ì©È»×ÔÈô
+            //æ³°ç„¶è‡ªè‹¥
             Equilibrium = new BaseAction(3552),
 
-            //Ô­³õµÄÓÂÃÍ
+            //åŸåˆçš„å‹‡çŒ›
             NascentFlash = new BaseAction(16464)
             {
                 ChoiceFriend = BaseAction.FindAttackedTarget,
             },
 
-            ////Ô­³õµÄÑªÆø
+            ////åŸåˆçš„è¡€æ°”
             //Bloodwhetting = new BaseAction(25751),
 
-            //¸´³ğ
+            //å¤ä»‡
             Vengeance = new BaseAction(44)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //Ô­³õµÄÖ±¾õ
+            //åŸåˆçš„ç›´è§‰
             RawIntuition = new BaseAction(3551)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //°ÚÍÑ
+            //æ‘†è„±
             ShakeItOff = new BaseAction(7388),
 
-            //ËÀ¶·
+            //æ­»æ–—
             Holmgang = new BaseAction(43)
             {
                 OtherCheck = b => (float)Service.ClientState.LocalPlayer.CurrentHp / Service.ClientState.LocalPlayer.MaxHp < Service.Configuration.HealthForDyingTank,
             },
 
-            ////Ô­³õµÄ½â·Å
+            ////åŸåˆçš„è§£æ”¾
             //InnerRelease = new BaseAction(7389),
 
-            //Âù»Ä±ÀÁÑ
+            //è›®è’å´©è£‚
             PrimalRend = new BaseAction(25753)
             {
                 BuffsNeed = new ushort[] { ObjectStatus.PrimalRendReady },
@@ -131,27 +129,27 @@ internal class WARCombo : CustomComboJob<WARGauge>
     }
     internal override SortedList<DescType, string> Description => new SortedList<DescType, string>()
     {
-        {DescType.·¶Î§·ÀÓù, $"{Actions.ShakeItOff.Action.Name}"},
-        {DescType.µ¥Ìå·ÀÓù, $"{Actions.RawIntuition.Action.Name}, {Actions.Vengeance.Action.Name}"},
-        {DescType.ÒÆ¶¯, $"GCD: {Actions.PrimalRend.Action.Name}£¬Ä¿±êÎªÃæÏò¼Ğ½ÇĞ¡ÓÚ30¡ãÄÚ×îÔ¶Ä¿±ê¡£\n                     ÄÜÁ¦: {Actions.Onslaught.Action.Name}, "},
+        {DescType.èŒƒå›´é˜²å¾¡, $"{Actions.ShakeItOff.Action.Name}"},
+        {DescType.å•ä½“é˜²å¾¡, $"{Actions.RawIntuition.Action.Name}, {Actions.Vengeance.Action.Name}"},
+        {DescType.ç§»åŠ¨, $"GCD: {Actions.PrimalRend.Action.Name}ï¼Œç›®æ ‡ä¸ºé¢å‘å¤¹è§’å°äº30Â°å†…æœ€è¿œç›®æ ‡ã€‚\n                     èƒ½åŠ›: {Actions.Onslaught.Action.Name}, "},
     };
     private protected override bool DefenceAreaAbility(byte abilityRemain, out IAction act)
     {
-        //°ÚÍÑ ¶ÓÓÑÌ×¶Ü
+        //æ‘†è„± é˜Ÿå‹å¥—ç›¾
         if (Actions.ShakeItOff.ShouldUseAction(out act)) return true;
         return false;
     }
 
     private protected override bool MoveGCD(uint lastComboActionID, out IAction act)
     {
-        //·Å¸ö´ó Âù»Ä±ÀÁÑ »áÍùÇ°·É
+        //æ”¾ä¸ªå¤§ è›®è’å´©è£‚ ä¼šå¾€å‰é£
         if (Actions.PrimalRend.ShouldUseAction(out act, mustUse: true)) return true;
         return false;
     }
 
     private protected override bool MoveAbility(byte abilityRemain, out IAction act)
     {
-        //Í»½ø
+        //çªè¿›
         if (Actions.Onslaught.ShouldUseAction(out act, emptyOrSkipCombo: true)) return true;
         return false;
 
@@ -159,7 +157,7 @@ internal class WARCombo : CustomComboJob<WARGauge>
 
     private protected override bool GeneralGCD(uint lastComboActionID, out IAction act)
     {
-        //¸ã¸ã¹¥»÷
+        //æææ”»å‡»
         if (Actions.PrimalRend.ShouldUseAction(out act, mustUse: true) && !IsMoving)
         {
             if (BaseAction.DistanceToPlayer(Actions.PrimalRend.Target) < 2)
@@ -168,26 +166,26 @@ internal class WARCombo : CustomComboJob<WARGauge>
             }
         }
 
-        //ÊŞ»êÊä³ö
+        //å…½é­‚è¾“å‡º
         if (JobGauge.BeastGauge >= 50 || BaseAction.HaveStatusSelfFromSelf(ObjectStatus.InnerRelease))
         {
-            //¸ÖÌúĞı·ç
+            //é’¢é“æ—‹é£
             if (Actions.SteelCyclone.ShouldUseAction(out act)) return true;
-            //Ô­³õÖ®»ê
+            //åŸåˆä¹‹é­‚
             if (Actions.InnerBeast.ShouldUseAction(out act)) return true;
         }
 
-        //ÈºÌå
+        //ç¾¤ä½“
         if (Actions.MythrilTempest.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.Overpower.ShouldUseAction(out act, lastComboActionID)) return true;
 
-        //µ¥Ìå
+        //å•ä½“
         if (Actions.StormsEye.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.StormsPath.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.Maim.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.HeavySwing.ShouldUseAction(out act, lastComboActionID)) return true;
 
-        //¹»²»×Å£¬Ëæ±ã´òÒ»¸ö°É¡£
+        //å¤Ÿä¸ç€ï¼Œéšä¾¿æ‰“ä¸€ä¸ªå§ã€‚
         if (IconReplacer.Move && MoveAbility(1, out act)) return true;
         if (Actions.Tomahawk.ShouldUseAction(out act)) return true;
 
@@ -195,7 +193,7 @@ internal class WARCombo : CustomComboJob<WARGauge>
     }
     private protected override bool EmergercyAbility(byte abilityRemain, IAction nextGCD, out IAction act)
     {
-        //ËÀ¶· Èç¹ûĞ»²»¹»ÁË¡£
+        //æ­»æ–— å¦‚æœè°¢ä¸å¤Ÿäº†ã€‚
         if (Actions.Holmgang.ShouldUseAction(out act)) return true;
         return false;
     }
@@ -204,17 +202,17 @@ internal class WARCombo : CustomComboJob<WARGauge>
     {
         if (abilityRemain == 1)
         {
-            //Ô­³õµÄÖ±¾õ£¨¼õÉË10%£©
+            //åŸåˆçš„ç›´è§‰ï¼ˆå‡ä¼¤10%ï¼‰
             if (Actions.RawIntuition.ShouldUseAction(out act)) return true;
 
-            //¸´³ğ£¨¼õÉË30%£©
+            //å¤ä»‡ï¼ˆå‡ä¼¤30%ï¼‰
             if (Actions.Vengeance.ShouldUseAction(out act)) return true;
 
-            //Ìú±Ú£¨¼õÉË20%£©
+            //é“å£ï¼ˆå‡ä¼¤20%ï¼‰
             if (GeneralActions.Rampart.ShouldUseAction(out act)) return true;
 
-            //½µµÍ¹¥»÷
-            //Ñ©³ğ
+            //é™ä½æ”»å‡»
+            //é›ªä»‡
             if (GeneralActions.Reprisal.ShouldUseAction(out act)) return true;
         }
 
@@ -224,35 +222,35 @@ internal class WARCombo : CustomComboJob<WARGauge>
 
     private protected override bool ForAttachAbility(byte abilityRemain, out IAction act)
     {
-        //±¬·¢
+        //çˆ†å‘
         if (BuffTime > 3 || Service.ClientState.LocalPlayer.Level < Actions.MythrilTempest.Level)
         {
-            //Õ½º¿
+            //æˆ˜åš
             if (Actions.Infuriate.ShouldUseAction(out act)) return true;
-            //¿ñ±©
+            //ç‹‚æš´
             if (!new BaseAction(7389).IsCoolDown && Actions.Berserk.ShouldUseAction(out act)) return true;
-            //Õ½º¿
+            //æˆ˜åš
             if (Actions.Infuriate.ShouldUseAction(out act, emptyOrSkipCombo: true)) return true;
         }
 
         if ((float)Service.ClientState.LocalPlayer.CurrentHp / Service.ClientState.LocalPlayer.MaxHp < 0.6)
         {
-            //Õ½Àõ
+            //æˆ˜æ —
             if (Actions.ThrillofBattle.ShouldUseAction(out act)) return true;
-            //Ì©È»×ÔÈô ×ÔÄÌ°¡£¡
+            //æ³°ç„¶è‡ªè‹¥ è‡ªå¥¶å•Šï¼
             if (Actions.Equilibrium.ShouldUseAction(out act)) return true;
         }
 
-        //ÄÌ¸ö¶ÓÓÑ°¡¡£
+        //å¥¶ä¸ªé˜Ÿå‹å•Šã€‚
         if (!HaveShield && Actions.NascentFlash.ShouldUseAction(out act)) return true;
 
-        //ÆÕÍ¨¹¥»÷
-        //ÈºÉ½Â¡Æğ
+        //æ™®é€šæ”»å‡»
+        //ç¾¤å±±éš†èµ·
         if (Actions.Orogeny.ShouldUseAction(out act)) return true;
-        //¶¯ÂÒ 
+        //åŠ¨ä¹± 
         if (Actions.Upheaval.ShouldUseAction(out act)) return true;
 
-        //¸ã¸ã¹¥»÷
+        //æææ”»å‡»
         if (Actions.Onslaught.ShouldUseAction(out act) && !IsMoving)
         {
             if (BaseAction.DistanceToPlayer(Actions.Onslaught.Target) < 1)
