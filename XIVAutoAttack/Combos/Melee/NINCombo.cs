@@ -130,11 +130,7 @@ internal class NINCombo : CustomComboJob<NINGauge>
                 BuffsNeed = new ushort[] { ObjectStatus.RaijuReady },
             },
 
-            //月影雷兽爪
-            ForkedRaiju = new BaseAction(25777)
-            {
-                BuffsNeed = new ushort[] { ObjectStatus.RaijuReady },
-            },
+
 
             //风来刃
             Huraijin = new BaseAction(25876)
