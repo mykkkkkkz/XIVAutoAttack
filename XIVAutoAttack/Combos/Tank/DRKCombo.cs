@@ -30,9 +30,7 @@ internal class DRKCombo : CustomComboJob<DRKGauge>
 
             //伤残
             Unmend = new BaseAction(3624)
-            {
-                FilterForHostile = b => BaseAction.ProvokeTarget(b, out _),
-            },
+
 
             //噬魂斩
             Souleater = new BaseAction(3632),
