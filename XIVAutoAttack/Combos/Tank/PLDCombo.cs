@@ -22,16 +22,16 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
     internal struct Actions
     {
         public static readonly BaseAction
-            //¸ÖÌúĞÅÄî
+            //é’¢é“ä¿¡å¿µ
             IronWill = new BaseAction(28, shouldEndSpecial: true),
 
-            //ÏÈ·æ½£
+            //å…ˆé”‹å‰‘
             FastBlade = new BaseAction(9),
 
-            //±©ÂÒ½£
+            //æš´ä¹±å‰‘
             RiotBlade = new BaseAction(15),
 
-            //Á¤Ñª½£
+            //æ²¥è¡€å‰‘
             GoringBlade = new BaseAction(3538)
             {
                 TargetStatus = new ushort[]
@@ -41,113 +41,111 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
                 }
             },
 
-            //Õ½Å®ÉñÖ®Å­
+            //æˆ˜å¥³ç¥ä¹‹æ€’
             RageofHalone = new BaseAction(21),
 
-            //Í¶¶Ü
+            //æŠ•ç›¾
             ShieldLob = new BaseAction(24)
-            {
-                FilterForHostile = b => BaseAction.ProvokeTarget(b, out _),
-            },
 
-            //Õ½ÌÓ·´Ó¦
+
+            //æˆ˜é€ƒååº”
             FightorFlight = new BaseAction(20),
 
-            //È«Ê´Õ¶
+            //å…¨èš€æ–©
             TotalEclipse = new BaseAction(7381),
 
-            //ÈÕçíÕ¶
+            //æ—¥ç¥æ–©
             Prominence = new BaseAction(16457),
 
-            //Ô¤¾¯
+            //é¢„è­¦
             Sentinel = new BaseAction(17)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //¶òÔËÁ÷×ª
+            //å„è¿æµè½¬
             CircleofScorn = new BaseAction(23),
 
-            //Éî°ÂÖ®Áé
+            //æ·±å¥¥ä¹‹çµ
             SpiritsWithin = new BaseAction(29),
 
-            //ÉñÊ¥ÁìÓò
+            //ç¥åœ£é¢†åŸŸ
             HallowedGround = new BaseAction(30)
             {
                 OtherCheck = b => (float)Service.ClientState.LocalPlayer.CurrentHp / Service.ClientState.LocalPlayer.MaxHp < Service.Configuration.HealthForDyingTank,
             },
 
-            //Ê¥¹âÄ»Á±
+            //åœ£å…‰å¹•å¸˜
             DivineVeil = new BaseAction(3540),
 
-            //ÉîÈÊºñÔó
+            //æ·±ä»åšæ³½
             Clemency = new BaseAction(3541, true, true),
 
-            //¸ÉÔ¤
+            //å¹²é¢„
             Intervention = new BaseAction(7382, true)
             {
                 ChoiceFriend = BaseAction.FindAttackedTarget,
             },
 
-            //µ÷Í£
+            //è°ƒåœ
             Intervene = new BaseAction(16461, shouldEndSpecial:true),
 
-            //Êê×ï½£
+            //èµç½ªå‰‘
             Atonement = new BaseAction(16460)
             {
                 BuffsNeed = new ushort[] { ObjectStatus.SwordOath },
             },
 
-            //³¥Êê½£
+            //å¿èµå‰‘
             Expiacion = new BaseAction(25747),
 
-            //Ó¢ÓÂÖ®½£
+            //è‹±å‹‡ä¹‹å‰‘
             BladeofValor = new BaseAction(25750),
 
-            //ÕæÀíÖ®½£
+            //çœŸç†ä¹‹å‰‘
             BladeofTruth = new BaseAction(25749),
 
-            //ĞÅÄîÖ®½£
+            //ä¿¡å¿µä¹‹å‰‘
             BladeofFaith = new BaseAction(25748),
 
-            //°²»êÆíµ»
+            //å®‰é­‚ç¥ˆç¥·
             Requiescat = new BaseAction(7383),
 
-            //»Ú×ï
+            //æ‚”ç½ª
             Confiteor = new BaseAction(16459),
 
-            //Ê¥»·
+            //åœ£ç¯
             HolyCircle = new BaseAction(16458),
 
-            //Ê¥Áé
+            //åœ£çµ
             HolySpirit = new BaseAction(7384),
 
-            //Îä×°ÊùÎÀ
+            //æ­¦è£…æˆå«
             PassageofArms = new BaseAction(7385),
 
-            //±£»¤
+            //ä¿æŠ¤
             //Cover = new BaseAction(27, true),
 
-            //¶ÜÕó
+            //ç›¾é˜µ
             Sheltron = new BaseAction(3542);
-        //¶ÜÅÆÃÍ»÷
+        //ç›¾ç‰ŒçŒ›å‡»
         //ShieldBash = new BaseAction(16),
     }
     internal override SortedList<DescType, string> Description => new SortedList<DescType, string>()
     {
-        {DescType.µ¥ÌåÖÎÁÆ, $"{Actions.Clemency.Action.Name}"},
-        {DescType.·¶Î§·ÀÓù, $"{Actions.DivineVeil.Action.Name}, {Actions.PassageofArms.Action.Name}"},
-        {DescType.µ¥Ìå·ÀÓù, $"{Actions.Sentinel.Action.Name}, {Actions.Sheltron.Action.Name}"},
-        {DescType.ÒÆ¶¯, $"{Actions.Intervene.Action.Name}"},
+        {DescType.å•ä½“æ²»ç–—, $"{Actions.Clemency.Action.Name}"},
+        {DescType.èŒƒå›´é˜²å¾¡, $"{Actions.DivineVeil.Action.Name}, {Actions.PassageofArms.Action.Name}"},
+        {DescType.å•ä½“é˜²å¾¡, $"{Actions.Sentinel.Action.Name}, {Actions.Sheltron.Action.Name}"},
+        {DescType.ç§»åŠ¨, $"{Actions.Intervene.Action.Name}"},
     };
     private protected override bool GeneralGCD(uint lastComboActionID, out IAction act)
     {
-        //Èı¸ö´óÕĞ
+        //ä¸‰ä¸ªå¤§æ‹›
         if (Actions.BladeofValor.ShouldUseAction(out act, lastComboActionID, mustUse: true)) return true;
         if (Actions.BladeofTruth.ShouldUseAction(out act, lastComboActionID, mustUse: true)) return true;
         if (Actions.BladeofFaith.ShouldUseAction(out act, lastComboActionID, mustUse: true)) return true;
 
-        //Ä§·¨ÈıÖÖ×ËÊÆ
+        //é­”æ³•ä¸‰ç§å§¿åŠ¿
         var status = BaseAction.FindStatusFromSelf(Service.ClientState.LocalPlayer).Where(status => status.StatusId == ObjectStatus.Requiescat);
         if (status != null && status.Count() > 0)
         {
@@ -158,20 +156,20 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
             if (Actions.HolySpirit.ShouldUseAction(out act)) return true;
         }
 
-        //AOE ¶şÁ¬
+        //AOE äºŒè¿
         if (Actions.Prominence.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.TotalEclipse.ShouldUseAction(out act, lastComboActionID)) return true;
 
-        //Êê×ï½£
+        //èµç½ªå‰‘
         if (Actions.Atonement.ShouldUseAction(out act)) return true;
 
-        //µ¥ÌåÈıÁ¬
+        //å•ä½“ä¸‰è¿
         if (Actions.GoringBlade.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.RageofHalone.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.RiotBlade.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.FastBlade.ShouldUseAction(out act, lastComboActionID)) return true;
 
-        //Í¶¶Ü
+        //æŠ•ç›¾
         if (IconReplacer.Move && MoveAbility(1, out act)) return true;
         if (Actions.ShieldLob.ShouldUseAction(out act)) return true;
 
@@ -180,7 +178,7 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
 
     private protected override bool MoveAbility(byte abilityRemain, out IAction act)
     {
-        //µ÷Í£
+        //è°ƒåœ
         if (Actions.Intervene.ShouldUseAction(out act, emptyOrSkipCombo: true)) return true;
 
         return false;
@@ -188,7 +186,7 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
 
     private protected override bool HealSingleGCD(uint lastComboActionID, out IAction act)
     {
-        //ÉîÈÊºñÔó
+        //æ·±ä»åšæ³½
         if (Actions.Clemency.ShouldUseAction(out act)) return true;
 
         return false;
@@ -196,34 +194,34 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
 
     private protected override bool DefenceAreaAbility(byte abilityRemain, out IAction act)
     {
-        //Ê¥¹âÄ»Á±
+        //åœ£å…‰å¹•å¸˜
         if (Actions.DivineVeil.ShouldUseAction(out act)) return true;
 
-        //Îä×°ÊùÎÀ
+        //æ­¦è£…æˆå«
         if (Actions.PassageofArms.ShouldUseAction(out act)) return true;
         return false;
     }
 
     private protected override bool ForAttachAbility(byte abilityRemain, out IAction act)
     {
-        //Õ½ÌÓ·´Ó¦ ¼ÓBuff
+        //æˆ˜é€ƒååº” åŠ Buff
         if (Actions.FightorFlight.ShouldUseAction(out act)) return true;
 
-        //¶òÔËÁ÷×ª
+        //å„è¿æµè½¬
         if (Actions.CircleofScorn.ShouldUseAction(out act, mustUse: true)) return true;
 
-        //³¥Êê½£
+        //å¿èµå‰‘
         if (Actions.Expiacion.ShouldUseAction(out act, mustUse: true)) return true;
 
-        //°²»êÆíµ»
+        //å®‰é­‚ç¥ˆç¥·
         if (Service.TargetManager.Target is BattleChara b && BaseAction.FindStatusFromSelf(b, ObjectStatus.GoringBlade, ObjectStatus.BladeofValor) is float[] times &&
             times != null && times.Length > 0 && times.Max() > 10 &&
             Actions.Requiescat.ShouldUseAction(out act, mustUse: true)) return true;
 
-        //Éî°ÂÖ®Áé
+        //æ·±å¥¥ä¹‹çµ
         if (Actions.SpiritsWithin.ShouldUseAction(out act)) return true;
 
-        //¸ã¸ã¹¥»÷
+        //æææ”»å‡»
         if (Actions.Intervene.ShouldUseAction(out act) && !IsMoving)
         {
             if (BaseAction.DistanceToPlayer(Actions.Intervene.Target) < 1)
@@ -236,7 +234,7 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
     }
     private protected override bool EmergercyAbility(byte abilityRemain, IAction nextGCD, out IAction act)
     {
-        //ÉñÊ¥ÁìÓò Èç¹ûĞ»²»¹»ÁË¡£
+        //ç¥åœ£é¢†åŸŸ å¦‚æœè°¢ä¸å¤Ÿäº†ã€‚
         if (Actions.HallowedGround.ShouldUseAction(out act)) return true;
         return false;
     }
@@ -245,24 +243,24 @@ internal class PLDCombo : CustomComboJob<PLDGauge>
         if (abilityRemain == 1)
         {
 
-            //Ô¤¾¯£¨¼õÉË30%£©
+            //é¢„è­¦ï¼ˆå‡ä¼¤30%ï¼‰
             if (Actions.Sentinel.ShouldUseAction(out act)) return true;
 
-            //Ìú±Ú£¨¼õÉË20%£©
+            //é“å£ï¼ˆå‡ä¼¤20%ï¼‰
             if (GeneralActions.Rampart.ShouldUseAction(out act)) return true;
 
             if (JobGauge.OathGauge >= 50)
             {
-                //¶ÜÕó
+                //ç›¾é˜µ
                 if (Actions.Sheltron.ShouldUseAction(out act)) return true;
             }
 
-            //½µµÍ¹¥»÷
-            //Ñ©³ğ
+            //é™ä½æ”»å‡»
+            //é›ªä»‡
             if (GeneralActions.Reprisal.ShouldUseAction(out act)) return true;
         }
 
-        //¸ÉÔ¤£¨¼õÉË10%£©
+        //å¹²é¢„ï¼ˆå‡ä¼¤10%ï¼‰
         if (!HaveShield && Actions.Intervention.ShouldUseAction(out act)) return true;
 
         act = null;
