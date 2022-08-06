@@ -1,7 +1,6 @@
 using Dalamud.Game.ClientState.JobGauge.Types;
 using System.Collections.Generic;
 using System.Numerics;
-
 namespace XIVAutoAttack.Combos.Tank;
 
 internal class GNBCombo : CustomComboJob<GNBGauge>
@@ -16,118 +15,118 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
     internal struct Actions
     {
         public static readonly BaseAction
-            //ÍõÊÒÇ×ÎÀ
+            //ç‹å®¤äº²å«
             RoyalGuard = new BaseAction(16142, shouldEndSpecial: true),
 
-            //ÀûÈĞÕ¶
+            //åˆ©åˆƒæ–©
             KeenEdge = new BaseAction(16137),
 
-            //ÎŞÇé
+            //æ— æƒ…
             NoMercy = new BaseAction(16138),
 
-            //²Ğ±©µ¯
+            //æ®‹æš´å¼¹
             BrutalShell = new BaseAction(16139),
 
-            //Î±×°
+            //ä¼ªè£…
             Camouflage = new BaseAction(16140)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //¶ñÄ§ÇĞ
+            //æ¶é­”åˆ‡
             DemonSlice = new BaseAction(16141),
 
-            //ÉÁÀ×µ¯
+            //é—ªé›·å¼¹
             LightningShot = new BaseAction(16143),
 
-            //Î£ÏÕÁìÓò
+            //å±é™©é¢†åŸŸ
             DangerZone = new BaseAction(16144),
 
-            //Ñ¸Á¬Õ¶
+            //è¿…è¿æ–©
             SolidBarrel = new BaseAction(16145),
 
-            //±¬·¢»÷
+            //çˆ†å‘å‡»
             BurstStrike = new BaseAction(16162),
 
-            //ĞÇÔÆ
+            //æ˜Ÿäº‘
             Nebula = new BaseAction(16148)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //¶ñÄ§É±
+            //æ¶é­”æ€
             DemonSlaughter = new BaseAction(16149),
 
-            //¼«¹â
+            //æå…‰
             Aurora = new BaseAction(16151, true)
             {
                 BuffsProvide = new ushort[] { ObjectStatus.Aurora },
             },
 
-            //³¬»ğÁ÷ĞÇ
+            //è¶…ç«æµæ˜Ÿ
             Superbolide = new BaseAction(16152)
             {
                 OtherCheck = b => (float)Service.ClientState.LocalPlayer.CurrentHp / Service.ClientState.LocalPlayer.MaxHp < Service.Configuration.HealthForDyingTank,
             },
 
-            //ÒôËÙÆÆ
+            //éŸ³é€Ÿç ´
             SonicBreak = new BaseAction(16153),
 
-            //´Ö·ÖÕ¶
+            //ç²—åˆ†æ–©
             RoughDivide = new BaseAction(16154, shouldEndSpecial: true),
 
-            //ÁÒÑÀ
+            //çƒˆç‰™
             GnashingFang = new BaseAction(16146),
 
-            //¹­ĞÎ³å²¨
+            //å¼“å½¢å†²æ³¢
             BowShock = new BaseAction(16159),
 
-            //¹âÖ®ĞÄ
+            //å…‰ä¹‹å¿ƒ
             HeartofLight = new BaseAction(16160, true),
 
-            //Ê¯Ö®ĞÄ
+            //çŸ³ä¹‹å¿ƒ
             HeartofStone = new BaseAction(16161, true)
             {
                 BuffsProvide = GeneralActions.Rampart.BuffsProvide,
             },
 
-            //ÃüÔËÖ®»·
+            //å‘½è¿ä¹‹ç¯
             FatedCircle = new BaseAction(16163),
 
-            //ÑªÈÀ
+            //è¡€å£¤
             Bloodfest = new BaseAction(16164)
             {
                 OtherCheck = b => JobGauge.Ammo == 0,
             },
 
-            //±¶¹¥
+            //å€æ”»
             DoubleDown = new BaseAction(25760),
 
-            //ÃÍÊŞ×¦
+            //çŒ›å…½çˆª
             SavageClaw = new BaseAction(16147),
 
-            //Ğ×Çİ×¦
+            //å‡¶ç¦½çˆª
             WickedTalon = new BaseAction(16150),
 
-            //Ëººí
+            //æ’•å–‰
             JugularRip = new BaseAction(16156)
             {
                 OtherCheck = b => Service.IconReplacer.OriginalHook(16155) == JugularRip.ID,
             },
 
-            //ÁÑÌÅ
+            //è£‚è†›
             AbdomenTear = new BaseAction(16157)
             {
                 OtherCheck = b => Service.IconReplacer.OriginalHook(16155) == AbdomenTear.ID,
             },
 
-            //´©Ä¿
+            //ç©¿ç›®
             EyeGouge = new BaseAction(16158)
             {
                 OtherCheck = b => Service.IconReplacer.OriginalHook(16155) == EyeGouge.ID,
             },
 
-            //³¬¸ßËÙ
+            //è¶…é«˜é€Ÿ
             Hypervelocity = new BaseAction(25759)
             {
                 OtherCheck = b => Service.IconReplacer.OriginalHook(16155) == Hypervelocity.ID,
@@ -135,14 +134,14 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
     }
     internal override SortedList<DescType, string> Description => new SortedList<DescType, string>()
     {
-        {DescType.µ¥ÌåÖÎÁÆ, $"{Actions.Aurora.Action.Name}"},
-        {DescType.·¶Î§·ÀÓù, $"{Actions.HeartofLight.Action.Name}"},
-        {DescType.µ¥Ìå·ÀÓù, $"{Actions.HeartofStone.Action.Name}, {Actions.Nebula.Action.Name}, {Actions.Camouflage.Action.Name}"},
-        {DescType.ÒÆ¶¯, $"{Actions.RoughDivide.Action.Name}"},
+        {DescType.å•ä½“æ²»ç–—, $"{Actions.Aurora.Action.Name}"},
+        {DescType.èŒƒå›´é˜²å¾¡, $"{Actions.HeartofLight.Action.Name}"},
+        {DescType.å•ä½“é˜²å¾¡, $"{Actions.HeartofStone.Action.Name}, {Actions.Nebula.Action.Name}, {Actions.Camouflage.Action.Name}"},
+        {DescType.ç§»åŠ¨, $"{Actions.RoughDivide.Action.Name}"},
     };
     private protected override bool GeneralGCD(uint lastComboActionID, out IAction act)
     {
-        //Ê¹ÓÃ¾§ÄÒ
+        //ä½¿ç”¨æ™¶å›Š
         bool useAmmo = JobGauge.Ammo > (Service.ClientState.LocalPlayer.Level > Actions.DoubleDown.Level ? 2 : 0);
 
 
@@ -159,7 +158,7 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
         if ( Actions.DemonSlaughter.ShouldUseAction(out act, lastComboActionID)) return true;
         if ( Actions.DemonSlice.ShouldUseAction(out act, lastComboActionID)) return true;
 
-        //µ¥Ìå
+        //å•ä½“
         if (useAmmo)
         {
             if (Actions.GnashingFang.ShouldUseAction(out act)) return true;
@@ -167,7 +166,7 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
         }
         if (Actions.SonicBreak.ShouldUseAction(out act)) return true;
 
-        //µ¥ÌåÈıÁ¬
+        //å•ä½“ä¸‰è¿
         if (Actions.SolidBarrel.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.BrutalShell.ShouldUseAction(out act, lastComboActionID)) return true;
         if (Actions.KeenEdge.ShouldUseAction(out act, lastComboActionID)) return true;
@@ -180,7 +179,7 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
 
     private protected override bool EmergercyAbility(byte abilityRemain, IAction nextGCD, out IAction act)
     {
-        //ÉñÊ¥ÁìÓò Èç¹ûĞ»²»¹»ÁË¡£
+        //ç¥åœ£é¢†åŸŸ å¦‚æœè°¢ä¸å¤Ÿäº†ã€‚
         if (Actions.Superbolide.ShouldUseAction(out act)) return true;
         return false;
     }
@@ -198,7 +197,7 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
         if (Actions.BowShock.ShouldUseAction(out act, mustUse: true)) return true;
         if (Actions.DangerZone.ShouldUseAction(out act)) return true;
 
-        //¸ã¸ã¹¥»÷
+        //æææ”»å‡»
         if (Actions.RoughDivide.ShouldUseAction(out act) && !IsMoving)
         {
             if (BaseAction.DistanceToPlayer(Actions.RoughDivide.Target) < 1)
@@ -217,7 +216,7 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
 
     private protected override bool MoveAbility(byte abilityRemain, out IAction act)
     {
-        //Í»½ø
+        //çªè¿›
         if (Actions.RoughDivide.ShouldUseAction(out act, emptyOrSkipCombo: true)) return true;
         return false;
     }
@@ -226,20 +225,20 @@ internal class GNBCombo : CustomComboJob<GNBGauge>
         if (abilityRemain == 1)
         {
 
-            //¼õÉË10%£©
+            //å‡ä¼¤10%ï¼‰
             if (Actions.HeartofStone.ShouldUseAction(out act)) return true;
 
-            //ĞÇÔÆ£¨¼õÉË30%£©
+            //æ˜Ÿäº‘ï¼ˆå‡ä¼¤30%ï¼‰
             if (Actions.Nebula.ShouldUseAction(out act)) return true;
 
-            //Ìú±Ú£¨¼õÉË20%£©
+            //é“å£ï¼ˆå‡ä¼¤20%ï¼‰
             if (GeneralActions.Rampart.ShouldUseAction(out act)) return true;
 
-            //Î±×°£¨¼õÉË10%£©
+            //ä¼ªè£…ï¼ˆå‡ä¼¤10%ï¼‰
             if (Actions.Camouflage.ShouldUseAction(out act)) return true;
 
-            //½µµÍ¹¥»÷
-            //Ñ©³ğ
+            //é™ä½æ”»å‡»
+            //é›ªä»‡
             if (GeneralActions.Reprisal.ShouldUseAction(out act)) return true;
         }
 
